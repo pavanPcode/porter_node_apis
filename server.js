@@ -119,6 +119,10 @@ app.post("/porter/order_update", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.status(200).json({ status: "Service is up", timestamp: new Date() });
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://127.0.0.1:${port}`);
