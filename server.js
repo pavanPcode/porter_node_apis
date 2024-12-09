@@ -3,8 +3,8 @@ const mysql = require("mysql2");
 const moment = require("moment-timezone");
 
 const app = express();
-const port = 5000;
-
+// const port = 5000;
+const port = process.env.PORT || 3000; 
 // Middleware to parse JSON body
 app.use(express.json());
 
@@ -123,7 +123,11 @@ app.get("/", (req, res) => {
   res.status(200).json({ status: "Service is up", timestamp: new Date() });
 });
 
+// // Start the server
+// app.listen(port, () => {
+//   console.log(`Server is running on http://127.0.0.1:${port}`);
+// });
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://127.0.0.1:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
